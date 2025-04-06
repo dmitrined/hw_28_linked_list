@@ -1,11 +1,11 @@
 public class MyPersonLinkedList implements MyList{
-    private PersonNode head = null; // первая нода в списке
-    private PersonNode tail = null; // последняя нода в списке
+    private Node head = null; // первая нода в списке
+    private Node tail = null; // последняя нода в списке
     private int size = 0;
 
     @Override
     public void add(Person person) {
-        PersonNode node = new PersonNode(person, tail, null);
+        Node node = new Node(person, tail, null);
         size++;
         if (head == null) {         // листа еще нет, создаем первую ноду
             head = node;
@@ -22,7 +22,7 @@ public class MyPersonLinkedList implements MyList{
             return null;
         }
         int count = 0;
-        PersonNode currentNode = head;
+        Node currentNode = head;
         while (count < index) {
             currentNode = currentNode.getNext();
             count++;
@@ -38,7 +38,7 @@ public class MyPersonLinkedList implements MyList{
     @Override
     public String toString() {
         String result = "";
-        PersonNode current = head;
+        Node current = head;
         while (current != null) {
             result += current.getValue().toString() + System.lineSeparator();
             current = current.getNext();
